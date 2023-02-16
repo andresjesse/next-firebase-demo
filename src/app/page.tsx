@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { Button, Flex, Paper, Text, Title } from "@mantine/core";
 
 export default function Home() {
   const app = useFirebaseApp();
@@ -50,8 +51,18 @@ export default function Home() {
 
   return (
     <main>
-      <button onClick={handleCreateUser}>Create User</button>
-      <button onClick={handleLogin}>Login</button>
+      <Paper shadow="md" p="xl">
+        <Flex direction="column">
+          <Title>App Title</Title>
+
+          {process.env.NEXT_PUBLIC_SIGNUP_ENABLED == "true" ? (
+            <Button onClick={handleCreateUser}>Create User</Button>
+          ) : (
+            <Text>User creation is disabled!</Text>
+          )}
+          <Button onClick={handleLogin}>Login</Button>
+        </Flex>
+      </Paper>
     </main>
   );
 }
