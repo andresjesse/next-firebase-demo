@@ -21,5 +21,8 @@
     "react-dom": "18.2.0",
     "reactfire": "^4.2.2",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "encoding": "^0.1.13"
   }
 }
